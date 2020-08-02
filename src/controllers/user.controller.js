@@ -3,7 +3,7 @@ const uuid = require('uuid');
 
 const register = async (req, res) => {
   try{
-    req.body.userID = uuid.v1();
+    req.body.userId = uuid.v1();
     const user = await userService.createUser(req.body);
     if(user){
       res.status(200).send({
@@ -26,8 +26,8 @@ const login = async (req, res) => {
     const user = await userService.loginUserWithEmailAndPassword(email, password);
     res.status(200).send({
       status:"success",
-      message: "Logged In",
-      token : "token"
+      message: "Successfully Logged In",
+      token : user
     });
   }catch(e){
     res.status(400).send({

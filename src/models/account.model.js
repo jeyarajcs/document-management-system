@@ -3,7 +3,7 @@ const validator = require('validator');
 
 const accountSchema = mongoose.Schema(
   {
-    accountID: {
+    accountId: {
       type: String,
       required: true,
       trim: true,

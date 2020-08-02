@@ -8,11 +8,13 @@ const { User } = require('../models');
  * @returns {Promise<User>}
  */
 const loginUserWithEmailAndPassword = async (email, password) => {
-    const user = await User.findOne({ email });
-    if (!user || !(await user.isPasswordMatch(password))) {
+
+    const user = await User.findOne({email});
+    const token = await user.generateToken();
+    if (!user || !(await user.isPasswordMatch(password)) || !token) {
         throw new Error('Incorrect email or password');
-      }
-    return user;
+    }
+    return token;
 };
 
 /**

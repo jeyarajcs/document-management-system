@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
-//const { toJSON, paginate } = require('./plugins');
-//const { roles } = require('../config/roles');
+const jwt = require('jsonwebtoken');
+const moment = require('moment');
+const { jwtSecret, jwtExpirationInterval } = require('../config/config');
 
 const userSchema = mongoose.Schema(
   {
@@ -41,7 +42,7 @@ const userSchema = mongoose.Schema(
         }
       }
     },
-    accountID:{
+    accountId:{
         type: String,
         required: true,
         trim: true,
@@ -78,6 +79,20 @@ userSchema.methods.isPasswordMatch = async function (password) {
   const user = this;
   return bcrypt.compare(password, user.password);
 };
+
+/**
+ * generate JWT after successful login
+ * @returns {Promise<boolean>}
+ */
+userSchema.methods.generateToken = async function (password) {
+    const user = this;
+    const payload = {
+        exp: moment().add(jwtExpirationInterval, 'minutes').unix(),
+        zusr : user.userId,
+        zacc : user.accountId
+    }
+    return jwt.sign(payload, jwtSecret)
+  };
 
 /**
  * Mongoose hook for Encrypt the password

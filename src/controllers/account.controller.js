@@ -3,7 +3,7 @@ const uuid = require('uuid');
 
 const createAccount = async (req, res) => {
   try{
-    req.body.accountID = uuid.v1();
+    req.body.accountId = uuid.v1();
     const account = await accountService.createAccount(req.body);
     if(account){
       res.status(200).send({
