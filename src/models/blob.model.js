@@ -36,12 +36,14 @@ const blobSchema = mongoose.Schema(
     parent:{
         type: String,
         required: true,
-        default: "root"
+        default: "root",
+        index: true
     },
     createdBy: {
         type: String,
         required: true,
-        ref: 'users'
+        ref: 'users',
+        index: true
     },
     accessLevel : {
         type: String,
@@ -62,6 +64,42 @@ const blobSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+
+
+/**
+ * Check if blob is created already
+ * @param {Object} blobBody
+ * @returns {Promise<boolean>}
+ */
+blobSchema.statics.isBlobExists = async function (blobBody) {
+    const filter = {
+        blobName : blobBody.blobName,
+        createdBy : blobBody.createdBy,
+        parent : blobBody.parent,
+        blobType : blobBody.blobType
+    }
+    const blob = await this.findOne(filter);
+    return !!blob;
+  };
+
+  /**
+ * Check if the parent folder exists or not
+ * @param {Object} blobBody
+ * @returns {Promise<boolean>}
+ */
+blobSchema.statics.isParentFolderExists = async function (blobBody) {
+    if(blobBody.parent && blobBody.parent == "root"){
+        return true;
+    }else{
+        const filter = {
+            blobId:blobBody.parent, 
+            blobType:"folder", 
+            createdBy: blobBody.createdBy
+        }
+        const folder = await this.findOne(filter);
+        return !!folder;
+    }
+  };
 
 /**
  * @typedef Blob

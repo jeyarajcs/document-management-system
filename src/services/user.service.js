@@ -7,7 +7,7 @@ const { User } = require('../models');
  * @param {string} password
  * @returns {Promise<User>}
  */
-const loginUserWithEmailAndPassword = async (email, password) => {
+const loginUser = async (email, password) => {
 
     const user = await User.findOne({email});
     const token = await user.generateToken();
@@ -32,6 +32,6 @@ const createUser = async (userBody) => {
   };
 
 module.exports = {
-  loginUserWithEmailAndPassword,
+  loginUser,
   createUser
 };

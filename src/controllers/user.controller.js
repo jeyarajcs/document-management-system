@@ -23,7 +23,7 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try{
     const { email, password } = req.body;
-    const user = await userService.loginUserWithEmailAndPassword(email, password);
+    const user = await userService.loginUser(email, password);
     res.status(200).send({
       status:"success",
       message: "Successfully Logged In",
