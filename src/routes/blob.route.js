@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/create', blobController.createBlob);
 router.post('/listBlobs', blobController.listBlobs);
-//router.post('/moveBlob', blobController.moveBlob);
+router.post('/moveBlob', blobController.moveBlob);
 
 
 module.exports = router;

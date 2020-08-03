@@ -8,7 +8,7 @@ const createBlob = async (req, res) => {
     if(blob){
       res.status(200).send({
         status:"success",
-        message:"Blob created successfully"
+        message:blob
       });
     }
   }catch(e){
@@ -37,7 +37,24 @@ const listBlobs = async (req, res) => {
   }
 };
 
+const moveBlob = async (req, res) => {
+    try{
+      if(!req.body.newParent) req.body.newParent = "root";
+      const blob = await blobService.moveBlob(req.body);
+      res.status(200).send({
+        status:"success",
+        message: blob
+      });
+    }catch(e){
+      res.status(400).send({
+        status:"error",
+        message: e.message
+      })
+    }
+  };
+
 module.exports = {
     createBlob,
-    listBlobs
+    listBlobs,
+    moveBlob
 };
