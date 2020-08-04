@@ -1,6 +1,14 @@
 const { userService} = require('../services');
 const uuid = require('uuid');
 
+/**
+ * 
+ * @param {Object} req.body userId, accountId, name, email, password 
+ * @param {Object} res
+ * @description To create a user
+ * @version 1.0.0
+ * @author Jeyaraj
+ */
 const register = async (req, res) => {
   try{
     req.body.userId = uuid.v1();
@@ -20,6 +28,15 @@ const register = async (req, res) => {
   
 };
 
+/**
+ * 
+ * @param {Object} req.body email, password 
+ * @param {Object} res
+ * @description Login user. The response will give the JWT, 
+ * and the same could be used for further API calls by providing x-access-token at http header.
+ * @version 1.0.0
+ * @author Jeyaraj
+ */
 const login = async (req, res) => {
   try{
     const { email, password } = req.body;

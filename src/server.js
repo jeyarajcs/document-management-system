@@ -6,4 +6,4 @@ const mongo = require('./config/db');
 mongo.connect();
 
 // listen to requests
-app.listen(port, () => console.log(`server started on port ${port} (${env})`));
+app.listen(process.env.PORT || port, () => console.log(`server started on port ${process.env.PORT || port} (${env})`));

@@ -60,7 +60,7 @@ const userSchema = mongoose.Schema(
 );
 
 /**
- * Check if email is taken
+ * Check if email is taken already
  * @param {string} email - The user's email
  * @param {ObjectId} [excludeUserId] - The id of the user to be excluded
  * @returns {Promise<boolean>}

@@ -1,6 +1,16 @@
 const { accountService} = require('../services');
 const uuid = require('uuid');
 
+/**
+ * 
+ * @param {Object} req 
+ * @param {Object} res 
+ * @description Create Account - As of now Its not being used, 
+ * But we can use in future when real multi-tenant based app.
+ * @requires req.body
+ * @version 1.0.0
+ * @author Jeyaraj
+ */
 const createAccount = async (req, res) => {
   try{
     req.body.accountId = uuid.v1();

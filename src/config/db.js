@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const { mongo, env } = require('./config');
 
-// set mongoose Promise to Bluebird
 mongoose.Promise = Promise;
 
 // Exit application on error
@@ -22,7 +21,6 @@ if (env === 'development') {
  * @public
  */
 exports.connect = () => {
-    console.log(mongo.uri)
   mongoose
     .connect(mongo.uri, {
       useCreateIndex: true,

@@ -7,7 +7,6 @@ const { Account } = require('../models');
  * @returns {Promise<Account>}
  */
 const createAccount = async (accountBody) => {
-        console.log(accountBody)
         const account = await Account.create(accountBody);
         return account;
   };
