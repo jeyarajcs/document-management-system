@@ -18,7 +18,7 @@ const createAccount = async (req, res) => {
     if(account){
       res.status(200).send({
         status:"success",
-        message:"Account created successfully"
+        message:account
       });
     }
   }catch(e){
