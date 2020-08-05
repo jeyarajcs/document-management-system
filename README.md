@@ -1,9 +1,9 @@
 ## Document Management System
 
-Steps to run the project.
-**cd** into the project directory
-Create .env file in root directory.
-The content of the **.env** will look like this.
+Steps to run the project.  
+**cd** into the project directory  
+Create .env file in root directory.  
+The content of the **.env** will look like this.  
 
     NODE_ENV=development
     PORT=8080
@@ -29,5 +29,5 @@ To run on production server
 
  ### Entity Diagram and Other information
  
-[Entity Relationship Diagram](https://jeyraj-1994.gitbook.io/dms/entity-diagram)
+[Entity Relationship Diagram](https://jeyraj-1994.gitbook.io/dms/entity-diagram)  
     [Postman Documentation](https://documenter.getpostman.com/view/854460/T1LFmVH3)
