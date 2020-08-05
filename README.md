@@ -25,7 +25,8 @@ To run on production server
 ### Demo
 Test email : dummy@gmail.com  
 password : 12345asdf  
-[Click here for demo](https://jeyraj-1994.gitbook.io/dms/entity-diagram)
+[Click here for demo](https://node-dms.herokuapp.com/)  
+Note : Still some features are pending in UI, only the basic workflow has been developed.
 
 ### Docker 
 
