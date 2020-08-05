@@ -22,13 +22,18 @@ To run on production server
 
 > **npm run start**
 
+### Demo
+Test email : dummy@gmail.com  
+password : 12345asdf  
+[Click here for demo](https://jeyraj-1994.gitbook.io/dms/entity-diagram)
+
 ### Docker 
 
-> `docker build -t username/dms-api-app .`
-> `docker run -p 8080:8080 -d username/dms-api-app`
+> `docker build -t username/dms-api-app .`  
+> `docker run -p 8080:8080 -d username/dms-api-app`  
 > The app uses mongodb transactions, So to run the project, MongoDB replica set is mandatory. If you are not having, create one here([https://www.mongodb.com/cloud/atlas/register](https://www.mongodb.com/cloud/atlas/register)). To setup local environment, you can download restore the collection by clicking the following link [MongoDB Collections ](https://jeyraj-1994.gitbook.io/dms/)
 
- ### Entity Diagram and Other information
+ ### Entity Relationship Diagram and Other information
  
 [Entity Relationship Diagram](https://jeyraj-1994.gitbook.io/dms/entity-diagram)  
     [Postman Documentation](https://documenter.getpostman.com/view/854460/T1LFmVH3)

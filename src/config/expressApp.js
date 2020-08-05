@@ -24,6 +24,11 @@ app.use(mongoSanitize());
 // gzip compression
 app.use(compression());
 
+// ---- SERVE STATIC FILES ---- //
+app.use(function(req, res, next) {
+  next();
+}, express.static("public"));
+
 // enable cors
 app.use(cors());
 app.options('*', cors());
